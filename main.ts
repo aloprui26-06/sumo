@@ -57,16 +57,6 @@ let distance = 0
 let searching = false
 let counter = 0
 let found = false
-basic.showLeds(`
-    . . # . .
-    . . . . .
-    . # . # .
-    . . . . .
-    # . . . #
-    `)
-music.startMelody(music.builtInMelody(Melodies.PowerUp), MelodyOptions.Once)
-basic.pause(2000)
-basic.clearScreen()
 let active = true
 while (active) {
     found = false
