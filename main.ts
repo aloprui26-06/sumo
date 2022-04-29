@@ -1,5 +1,5 @@
 function goSearching () {
-    basic.showString("S")
+    basic.showString("B")
     maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CW, 150)
     maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CCW, 150)
     counter = 0
@@ -34,14 +34,14 @@ function goDance () {
     maqueen.motorStopAll()
 }
 function goBack () {
-    basic.showString("B")
+    basic.showString("V")
     maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CCW, 255)
     maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CCW, 255)
     basic.pause(2000)
     maqueen.motorStopAll()
 }
 function goPush () {
-    basic.showString("P")
+    basic.showString("A")
     maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CW, 255)
     maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CW, 255)
     pushing = true
@@ -57,6 +57,15 @@ let distance = 0
 let searching = false
 let counter = 0
 let found = false
+basic.showLeds(`
+    . . # . .
+    . . . . .
+    . # . # .
+    . . . . .
+    # . . . #
+    `)
+music.startMelody(music.builtInMelody(Melodies.PowerUp), MelodyOptions.Once)
+basic.pause(2000)
 let active = true
 while (active) {
     found = false
