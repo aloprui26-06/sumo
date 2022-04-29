@@ -1,4 +1,11 @@
-function goSearching () {
+function Volver () {
+    basic.showString("V")
+    maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CCW, 255)
+    maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CCW, 255)
+    basic.pause(2000)
+    maqueen.motorStopAll()
+}
+function Buscar () {
     basic.showString("B")
     maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CW, 150)
     maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CCW, 150)
@@ -23,24 +30,7 @@ function goSearching () {
         counter += 1
     }
 }
-function goDance () {
-    basic.showIcon(IconNames.Yes)
-    maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CCW, 255)
-    maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CW, 255)
-    music.playTone(262, music.beat(BeatFraction.Eighth))
-    basic.pause(100)
-    music.playTone(262, music.beat(BeatFraction.Half))
-    basic.pause(500)
-    maqueen.motorStopAll()
-}
-function goBack () {
-    basic.showString("V")
-    maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CCW, 255)
-    maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CCW, 255)
-    basic.pause(2000)
-    maqueen.motorStopAll()
-}
-function goPush () {
+function Tocar () {
     basic.showString("A")
     maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CW, 255)
     maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CW, 255)
@@ -51,6 +41,16 @@ function goPush () {
             pushing = false
         }
     }
+}
+function Bailar () {
+    basic.showIcon(IconNames.Yes)
+    maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CCW, 255)
+    maqueen.MotorRun(maqueen.aMotors.M2, maqueen.Dir.CW, 255)
+    music.playTone(262, music.beat(BeatFraction.Eighth))
+    basic.pause(100)
+    music.playTone(262, music.beat(BeatFraction.Half))
+    basic.pause(500)
+    maqueen.motorStopAll()
 }
 let pushing = false
 let distance = 0
@@ -69,12 +69,12 @@ basic.pause(2000)
 let active = true
 while (active) {
     found = false
-    goSearching()
+    Buscar()
     if (found) {
-        goPush()
-        goBack()
+        Tocar()
+        Volver()
     } else {
         active = false
     }
 }
-goDance()
+Bailar()
