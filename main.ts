@@ -14,7 +14,7 @@ function Buscar () {
     basic.pause(500)
     while (searching) {
         distance = maqueen.sensor(PingUnit.Centimeters)
-        if (distance > 0 && distance < 950) {
+        if (distance > 0 && distance < 30) {
             maqueen.motorStopAll()
             maqueen.MotorRun(maqueen.aMotors.M1, maqueen.Dir.CCW, 100)
             basic.pause(200)
